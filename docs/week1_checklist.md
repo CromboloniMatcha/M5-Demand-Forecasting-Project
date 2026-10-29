@@ -1,4 +1,4 @@
-# Week 1 checklist: data, SQL, EDA
+# Notebook 1 checklist: data, SQL, EDA
 
 - [ ] Create a Kaggle account, accept the M5 competition rules, download the data
 - [ ] Put `calendar.csv`, `sell_prices.csv`, `sales_train_evaluation.csv` in `data/raw/`
@@ -9,9 +9,8 @@
 - [ ] Run `sql/04_eda_queries.sql` and read every result
 - [ ] Run `notebooks/01_eda.ipynb` top to bottom on the real data
 - [ ] Write the "Key findings" cell with your own numbers
-- [ ] Commit to GitHub (data files are git-ignored), with the figures from `reports/figures/`
 
-## Deliverables at the end of week 1
+## Deliverables at the end of notebook 1
 
 1. A working database build from raw CSV
 2. SQL files for schema, data quality and business questions

@@ -1,13 +1,13 @@
-# Week 1 (data loading, SQL, EDA)
+# Weeks 1-2 (data loading, SQL, EDA, baselines)
 pandas>=2.0
 numpy>=1.24
 matplotlib>=3.7
 seaborn>=0.12
 jupyter>=1.0
+statsmodels>=0.14   # week 2: ETS and SARIMA (optional, only for --with-stats)
 
 # Added in later weeks (uncomment when you reach them)
-# statsmodels      # week 2: ETS / ARIMA baselines
-# scikit-learn     # week 3: metrics, validation helpers
+# scikit-learn     # week 3: validation helpers
 # lightgbm         # week 3: global forecasting model
 # shap             # week 3: model explanation
 # shiny            # week 5: dashboard (or use Power BI)
