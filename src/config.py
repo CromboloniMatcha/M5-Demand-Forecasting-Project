@@ -46,3 +46,28 @@ SBC_CV2_CUT = 0.49
 CROSTON_ALPHA = 0.1
 ETS_SAMPLE_SIZE = 300       # series sampled for ETS (slow to fit on every series)
 STATS_MAX_TRAIN_DAYS = 730  # ETS / SARIMA only look at the most recent 2 years
+
+# ---------------------------------------------------------------- Notebook 03: LightGBM
+DASHBOARD_DATA_DIR = ROOT / "dashboard" / "data"   # JSON copies of result tables for the web
+MODELS_DIR = ROOT / "models"
+
+LGB_TRAIN_ORIGINS = 52     # weekly forecast origins used for training (about 1 year of history)
+LGB_ORIGIN_STEP = 7
+LGB_H_PER_ORIGIN = 4       # horizons sampled per series and origin (keeps the training set small)
+LGB_MAX_ROUNDS = 1500
+LGB_EARLY_STOP = 50
+LGB_SHAP_ROWS = 10_000     # rows used for SHAP values
+LGB_PARAMS = {
+    "objective": "tweedie",            # standard choice for zero-inflated sales counts
+    "tweedie_variance_power": 1.1,
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_data_in_leaf": 100,
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "seed": 42,
+    "verbose": -1,
+    "num_threads": 0,                  # 0 = use all cores
+}

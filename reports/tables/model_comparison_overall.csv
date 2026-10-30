@@ -1,0 +1,7 @@
+method,WAPE,Bias,RMSSE,wRMSSE
+lightgbm,0.729,-0.007,0.742,0.82
+moving_avg_28d,0.751,-0.021,0.756,0.864
+croston_sba,0.775,-0.021,0.771,0.863
+seasonal_avg_4w,0.774,-0.021,0.812,0.908
+seasonal_naive,0.888,-0.023,0.986,1.103
+naive,1.026,0.247,1.008,1.21

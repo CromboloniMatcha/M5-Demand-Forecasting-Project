@@ -1,23 +1,6 @@
-# Week 2 checklist: segmentation and baselines
-
-## Files to add or replace
-| File | Put it in | New or replaced |
-|---|---|---|
-| config.py | src/ | replaced (adds week 2 settings) |
-| data_access.py | src/ | new |
-| metrics.py | src/ | new |
-| baselines.py | src/ | new |
-| segmentation.py | src/ | new |
-| stat_models.py | src/ | new |
-| run_week2.py | src/ | new |
-| 02_baselines.ipynb | notebooks/ | new |
-| requirements.txt | project root | replaced (adds statsmodels) |
-| week2_checklist.md | docs/ | new |
-
-If you changed `STATES` in the old `config.py`, set it again in the new one.
+# Notebook 2 checklist: segmentation and baselines
 
 ## Steps
-- [ ] Copy the files above into the right folders
 - [ ] `pip install -r requirements.txt` (installs statsmodels)
 - [ ] `python -m src.stat_models` should print ETS and SARIMA forecasts (checks statsmodels works)
 - [ ] `python -m src.run_week2` (fast: segmentation + 5 baselines, a few minutes the first time)

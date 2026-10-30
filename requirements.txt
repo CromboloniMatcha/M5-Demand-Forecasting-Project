@@ -1,14 +1,12 @@
-# Weeks 1-2 (data loading, SQL, EDA, baselines)
+# Core (notebooks 01-03)
 pandas>=2.0
 numpy>=1.24
 matplotlib>=3.7
 seaborn>=0.12
 jupyter>=1.0
-statsmodels>=0.14   # week 2: ETS and SARIMA (optional, only for --with-stats)
+statsmodels>=0.14   # notebook 02: ETS and SARIMA (only for --with-stats)
+lightgbm>=4.0       # notebook 03: forecasting model (also computes SHAP values itself)
+itables>=2.0        # interactive tables in notebooks (sort, search, filter)
 
-# Added in later weeks (uncomment when you reach them)
-# scikit-learn     # week 3: validation helpers
-# lightgbm         # week 3: global forecasting model
-# shap             # week 3: model explanation
-# shiny            # week 5: dashboard (or use Power BI)
-# plotly           # week 5: interactive charts
+# The web dashboard is static HTML/JS (Tabulator + Plotly.js loaded in the browser),
+# so it needs no extra Python packages.
