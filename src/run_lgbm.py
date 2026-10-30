@@ -17,6 +17,7 @@ Outputs (reports/tables/):
     lgbm_aggregate_metrics.csv   bottom-up accuracy at total and store x category level
     lgbm_aggregate_forecasts.csv forecasts vs actuals at those levels
     lgbm_forecasts_last_origin.csv.gz   item-store forecasts for the last 28 days
+    (data/processed/lgbm_forecasts.npz: item-store forecasts of every origin, used by notebook 04)
     lgbm_feature_importance.csv, lgbm_training_log.csv
 and data/processed/lgbm_shap_sample.npz, models/lgbm_origin<k>.txt
 """
@@ -84,6 +85,7 @@ def main():
     rng = np.random.default_rng(42)
     metric_rows, horizon_rows, agg_rows, agg_fc_rows, train_log = [], [], [], [], []
     last = {}
+    fc_store = {}
 
     for oi, c in enumerate(cutoffs, 1):
         t0 = time.time()
@@ -116,6 +118,7 @@ def main():
         F[elig_idx] = pred.reshape(len(elig_idx), H)
         eligible = np.zeros(n, dtype=bool)
         eligible[elig_idx] = True
+        fc_store[f"F{oi}"] = F.astype(np.float32)
 
         A = Y[:, c:c + H].astype(np.float64)
         scale = train_scale(Yf, c)
@@ -180,6 +183,7 @@ def main():
     if imp is not None:
         imp.sort_values("gain", ascending=False).to_csv(config.TABLES_DIR / "lgbm_feature_importance.csv", index=False)
 
+    np.savez_compressed(config.PROCESSED_DIR / "lgbm_forecasts.npz", cutoffs=np.array(cutoffs), **fc_store)
     pd.DataFrame(metric_rows).to_csv(config.TABLES_DIR / "lgbm_metrics.csv", index=False)
     pd.DataFrame(horizon_rows).to_csv(config.TABLES_DIR / "lgbm_horizon_metrics.csv", index=False)
     pd.DataFrame(agg_rows).to_csv(config.TABLES_DIR / "lgbm_aggregate_metrics.csv", index=False)

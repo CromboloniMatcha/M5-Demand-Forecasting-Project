@@ -71,3 +71,14 @@ LGB_PARAMS = {
     "verbose": -1,
     "num_threads": 0,                  # 0 = use all cores
 }
+
+# ---------------------------------------------------------------- Notebook 04: inventory simulation
+# M5 has NO stock, cost or lead-time data. Everything below is an explicit ASSUMPTION of the simulation.
+INV_LEAD_TIME = 7            # days between placing an order and receiving it
+INV_REVIEW_PERIOD = 7        # days between ordering decisions (weekly ordering)
+INV_SERVICE_LEVEL = 0.95     # target probability of covering demand over one order cycle
+INV_ALPHA_GRID = (0.80, 0.85, 0.90, 0.95, 0.98, 0.99)   # service levels tried for the trade-off curve
+INV_COST_RATIO = 0.70        # unit cost as a share of the selling price (so the gross margin is 30%)
+INV_HOLDING_RATE = 0.20      # yearly holding cost as a share of inventory value (capital, storage, shrink)
+INV_STOCKOUT_PENALTY = 0.0   # extra cost per lost unit as a share of its price (goodwill); 0 = lost margin only
+INV_METHODS = ["moving_avg_28d", "croston_sba", "lightgbm"]   # forecasts compared (an oracle is added)

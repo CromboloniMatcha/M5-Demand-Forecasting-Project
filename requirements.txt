@@ -7,6 +7,7 @@ jupyter>=1.0
 statsmodels>=0.14   # notebook 02: ETS and SARIMA (only for --with-stats)
 lightgbm>=4.0       # notebook 03: forecasting model (also computes SHAP values itself)
 itables>=2.0        # interactive tables in notebooks (sort, search, filter)
+scipy>=1.10         # notebook 04: demand quantiles for safety stock
 
 # The web dashboard is static HTML/JS (Tabulator + Plotly.js loaded in the browser),
 # so it needs no extra Python packages.
